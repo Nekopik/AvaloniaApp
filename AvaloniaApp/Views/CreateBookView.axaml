@@ -1,0 +1,33 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:AvaloniaApp.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:DataType="vm:CreateBookViewModel"
+             x:Class="AvaloniaApp.Views.CreateBookView">
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition></RowDefinition>
+			<RowDefinition></RowDefinition>
+			<RowDefinition></RowDefinition>
+			<RowDefinition></RowDefinition>
+			<RowDefinition></RowDefinition>
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition></ColumnDefinition>
+			<ColumnDefinition></ColumnDefinition>
+			<ColumnDefinition></ColumnDefinition>
+			<ColumnDefinition></ColumnDefinition>
+			<ColumnDefinition></ColumnDefinition>
+		</Grid.ColumnDefinitions>
+
+		<Label Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center" Content="Book Name"></Label>
+		<TextBox Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" Margin="20" Text="{Binding BookName}"></TextBox>
+		<Label Grid.Column="0" Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Center" Content="Book Author"></Label>
+		<TextBox Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3" Grid.RowSpan="2" Margin="20" Text="{Binding BookAuthor}"></TextBox>
+		<Button Grid.Column="4" Grid.Row="4" Margin="10" Content="Create Book" HorizontalAlignment="Center" VerticalAlignment="Center" Command="{Binding CreateBookCommand}"></Button>
+		<Button Grid.Column="3" Grid.Row="4" Margin="10" Content="Back" HorizontalAlignment="Center" VerticalAlignment="Center" Command="{Binding BackCommand}"></Button>
+
+	</Grid>
+</UserControl>
