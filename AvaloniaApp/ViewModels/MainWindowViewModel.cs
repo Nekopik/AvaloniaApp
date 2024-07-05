@@ -29,7 +29,7 @@ namespace AvaloniaApp.ViewModels
 
         public MainWindowViewModel()
         {
-            _appDbContext = new AppDbContext("Data Source=DESKTOP-F731TCH\\SQLEXPRESS;Integrated Security=True");
+            _appDbContext = new AppDbContext("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=master;Integrated Security=True;Connect Timeout=30;Encrypt=False");
             CurrentView = new LoginViewModel(this, _appDbContext);
         }
 
@@ -38,7 +38,7 @@ namespace AvaloniaApp.ViewModels
             CurrentView = new BooksViewModel(this, _appDbContext);
         }
 
-        public void ShowCreateNoteView()
+        public void ShowCreateBookView()
         {
             CurrentView = new CreateBookViewModel(this, _appDbContext);
         }

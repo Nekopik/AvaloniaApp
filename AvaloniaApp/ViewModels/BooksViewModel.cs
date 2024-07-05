@@ -43,29 +43,29 @@ namespace AvaloniaApp.ViewModels
 
             _books = new ObservableCollection<Book>();
 
-            RemoveBookCommand = ReactiveCommand.Create(RemoveNote);
-            CreateBookCommand = ReactiveCommand.Create(CreateNote);
-            RefreshNotes();
+            RemoveBookCommand = ReactiveCommand.Create(RemoveBook);
+            CreateBookCommand = ReactiveCommand.Create(CreateBook);
+            RefreshBooks();
         }
 
-        private async void RemoveNote()
+        private async void RemoveBook()
         {
             await _bookService.RemoveBook(_selectedBook.Id);
-            RefreshNotes();
+            RefreshBooks();
         }
 
-        private void CreateNote()
+        private void CreateBook()
         {
-            _mainWindowViewModel.ShowCreateNoteView();
+            _mainWindowViewModel.ShowCreateBookView();
         }
 
-        private void RefreshNotes()
+        private void RefreshBooks()
         {
             _books.Clear();
-            var notesFromDb = _bookService.GetBooks();
-            foreach (var note in notesFromDb)
+            var booksFromDb = _bookService.GetBooks();
+            foreach (var book in booksFromDb)
             {
-                _books.Add(note);
+                _books.Add(book);
             }
         }
 
