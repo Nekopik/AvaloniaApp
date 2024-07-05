@@ -8,5 +8,8 @@
         x:Class="AvaloniaApp.Views.MainWindow"
         Icon="/Assets/avalonia-logo.ico"
         Title="AvaloniaApp">
-        <views:MainView />
+	
+
+	<ContentControl Content="{Binding CurrentView}"></ContentControl>
+
 </Window>

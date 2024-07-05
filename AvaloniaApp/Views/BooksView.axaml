@@ -2,7 +2,39 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:AvaloniaApp.ViewModels"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:DataType="vm:BooksViewModel"
              x:Class="AvaloniaApp.Views.BooksView">
-  Welcome to Avalonia!
+	<Grid Background="#C8DCBD">
+		<Grid.RowDefinitions>
+			<RowDefinition></RowDefinition>
+			<RowDefinition></RowDefinition>
+			<RowDefinition></RowDefinition>
+			<RowDefinition></RowDefinition>
+			<RowDefinition></RowDefinition>
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition></ColumnDefinition>
+			<ColumnDefinition></ColumnDefinition>
+			<ColumnDefinition></ColumnDefinition>
+			<ColumnDefinition></ColumnDefinition>
+			<ColumnDefinition></ColumnDefinition>
+		</Grid.ColumnDefinitions>
+
+		<ListBox ItemsSource="{Binding Books}" SelectedItem="{Binding SelectedBook}" MaxHeight="400" Background="#DDEBD6" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="3">
+			<ListBox.ItemTemplate>
+				<DataTemplate>
+					<StackPanel>
+						<TextBlock Text="{Binding Name}"></TextBlock>
+						<TextBlock Text="{Binding Author}"></TextBlock>
+						<TextBlock Text="{Binding Category}"></TextBlock>
+					</StackPanel>
+				</DataTemplate>
+			</ListBox.ItemTemplate>
+		</ListBox>
+
+		<Button Grid.Row="3" Grid.Column="4" Content="Remove Book" Command="{Binding RemoveBookCommand}"></Button>
+		<Button Grid.Row="4" Grid.Column="4" Content="Create Book" Command="{Binding CreateBookCommand}"></Button>
+	</Grid>
 </UserControl>
