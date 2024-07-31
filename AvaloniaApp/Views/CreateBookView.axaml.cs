@@ -1,12 +1,11 @@
 using Avalonia.Controls;
 
-namespace AvaloniaApp.Views
+namespace AvaloniaApp.Views;
+
+public partial class CreateBookView : UserControl
 {
-    public partial class CreateBookView : UserControl
+    public CreateBookView()
     {
-        public CreateBookView()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }

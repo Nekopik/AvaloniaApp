@@ -29,7 +29,7 @@ namespace AvaloniaApp.ViewModels
 
         public MainWindowViewModel()
         {
-            _appDbContext = new AppDbContext("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=master;Integrated Security=True;Connect Timeout=30;Encrypt=False");
+            _appDbContext = new AppDbContext("PLACEHOLDER");
             CurrentView = new LoginViewModel(this, _appDbContext);
         }
 
